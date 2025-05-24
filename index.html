@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Centering Wrapper -->
+    <div class="center">
+        <div class="container">
+            <h2 class="fade-in">🌍 Language Translator</h2>
+            
+            <form id="translateForm" method="POST">
+                <label>Enter Text:</label>
+                <textarea name="text" id="textInput" required></textarea><br>
+                
+                <label>Source Language (ISO Code):</label>
+                <input type="text" name="src_lang" id="srcLang" required><br>
+                
+                <label>Target Language (ISO Code):</label>
+                <input type="text" name="tgt_lang" id="tgtLang" required><br>
+                
+                <button type="submit" id="translateBtn">Translate</button>
+            </form>
+
+            {% if translated_text %}
+                <div class="result">
+                    <h3>Translated Text:</h3>
+                    <p id="outputText">{{ translated_text }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
